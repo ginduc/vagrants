@@ -32,11 +32,11 @@ export DEBIAN_FRONTEND=noninteractive
     export mydb="mydb"
     export myuser="myuser"
     export mypw="mypw"
-    mysql -uroot -proot -e "create database $mydb;"
-    mysql -uroot -proot -e "create user '$myuser'@'%' identified by '$mypw';"
-    mysql -uroot -proot -e "create user '$myuser'@'localhost' identified by '$mypw';"
-    mysql -uroot -proot -e "grant all privileges on $mydb.* to '$myuser'@'%' with grant option; flush privileges;"
-    mysql -uroot -proot -e "grant all privileges on $mydb.* to '$myuser'@'localhost' with grant option; flush privileges;"
+    mysql -uroot -p$myrootpw -e "create database $mydb;"
+    mysql -uroot -p$myrootpw -e "create user '$myuser'@'%' identified by '$mypw';"
+    mysql -uroot -p$myrootpw -e "create user '$myuser'@'localhost' identified by '$mypw';"
+    mysql -uroot -p$myrootpw -e "grant all privileges on $mydb.* to '$myuser'@'%' with grant option; flush privileges;"
+    mysql -uroot -p$myrootpw -e "grant all privileges on $mydb.* to '$myuser'@'localhost' with grant option; flush privileges;"
 
     cp /vagrant/my.cnf.template /etc/mysql/my.cnf
     touch /var/log/db_setup
