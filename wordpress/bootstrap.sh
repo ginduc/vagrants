@@ -40,6 +40,10 @@ export DEBIAN_FRONTEND=noninteractive
   cp /vagrant/wp-config.php.template /var/www/wp-config.php
 
   service apache2 restart
+  
+  mv /etc/localtime /etc/localtime.bak
+  ln -s /usr/share/zoneinfo/Asia/Manila /etc/localtime
+
   touch /home/vagrant/.firstboot
   reboot
 fi

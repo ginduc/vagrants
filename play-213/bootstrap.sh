@@ -19,6 +19,9 @@ if [ ! -e "/home/vagrant/.firstboot" ]; then
   ln -s /opt/play-2.1.3/play /usr/bin/play  
   chown -R vagrant:vagrant /opt/play-2.1.3
 
+  mv /etc/localtime /etc/localtime.bak
+  ln -s /usr/share/zoneinfo/Asia/Manila /etc/localtime
+
   touch /home/vagrant/.firstboot
 
   reboot

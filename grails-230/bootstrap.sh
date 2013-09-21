@@ -23,7 +23,10 @@ export DEBIAN_FRONTEND=noninteractive
   su -l -c "curl -s get.gvmtool.net | bash" vagrant
   su -l -c "perl -i -p -e 's/gvm_auto_answer=false/gvm_auto_answer=true/' ~/.gvm/etc/config" vagrant  
   su -l -c "gvm install grails" vagrant
-  
+ 
+  mv /etc/localtime /etc/localtime.bak
+  ln -s /usr/share/zoneinfo/Asia/Manila /etc/localtime
+ 
   touch /home/vagrant/.firstboot
 
 
