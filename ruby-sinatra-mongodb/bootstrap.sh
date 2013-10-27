@@ -29,7 +29,7 @@ if [ ! -e "/home/vagrant/.firstboot" ]; then
   usermod -a -G rvm vagrant
 
   # install mongodb
-  sudo apt-get install mongodb-10gen
+  apt-get install mongodb-10gen
   echo "mongodb-10gen hold" | dpkg --set-selections
   service mongodb start
   mkdir -p /data/db/
@@ -38,6 +38,7 @@ if [ ! -e "/home/vagrant/.firstboot" ]; then
   # config local datetime
   mv /etc/localtime /etc/localtime.bak
   ln -s /usr/share/zoneinfo/Asia/Manila /etc/localtime
+  dpkg-reconfigure --frontend noninteractive tzdata
 
   touch /home/vagrant/.firstboot
   reboot
