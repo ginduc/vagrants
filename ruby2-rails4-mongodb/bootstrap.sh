@@ -16,7 +16,7 @@ if [ ! -e "/home/vagrant/.firstboot" ]; then
   apt-get update
  
   # install required packages
-  apt-get install -y --force-yes vim curl unzip software-properties-common python-software-properties
+  apt-get install -y --force-yes git vim curl unzip software-properties-common python-software-properties
 
   # install ruby dev env
   curl -L https://get.rvm.io | bash -s stable --ruby
