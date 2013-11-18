@@ -17,5 +17,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "613"]
   end
 
+  # Workspace
+  config.vm.synced_folder "./workspace", "/workspace"
+
 end
 
